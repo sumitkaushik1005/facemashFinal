@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/common_signin_btn_text_dark">
+    android:color="@color/black_overlay">
     <item>
         <layer-list>
             <item android:left="4sp" android:top="4sp">
