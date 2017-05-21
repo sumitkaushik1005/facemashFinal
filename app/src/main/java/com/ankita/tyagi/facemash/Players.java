@@ -98,7 +98,7 @@ String result;
 
             @Override
             protected String doInBackground(String... params) {
-                String url = "http://www.hbtifacemash.com/facemash/players.php";
+                String url = "http://103.235.104.96/~hbtiface/facemash/players.php";
 
                 try {
                     URL u = new URL(url);

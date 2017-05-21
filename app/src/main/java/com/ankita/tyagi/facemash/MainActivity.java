@@ -162,10 +162,10 @@ public class MainActivity extends AppCompatActivity
         }
         ImageLoader imageLoader=AppController.getInstance().getImageLoader();
         if(gender.equals("MALE")) {
-            image_url = "http://www.hbtifacemash.com/facemash/" + path;
+            image_url = "http://103.235.104.96/~hbtiface/facemash/" + path;
         }else
         {
-            image_url="http://www.hbtifacemash.com/facemash/" +path;
+            image_url="http://103.235.104.96/~hbtiface/facemash/" +path;
         }
         if(gender.equals("MALE"))
         imageLoader.get(image_url,ImageLoader.getImageListener(img,R.drawable.spinner,R.drawable.malen));
@@ -274,7 +274,7 @@ public class MainActivity extends AppCompatActivity
                 String response = null;
           //      String u="http://shareyourbook.netau.net/test/OgetStatus.php";
                 try {
-                    URL url = new URL("http://www.hbtifacemash.com/facemash/getStatus.php");
+                    URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getStatus.php");
                     HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
@@ -367,7 +367,7 @@ public class MainActivity extends AppCompatActivity
                 String gender=strings[1];
                 Bitmap b=null;
                 try{
-                    URL url=new URL("http://www.hbtifacemash.com/facemash/downloadFromServer.php");
+                    URL url=new URL("http://103.235.104.96/~hbtiface/facemash/downloadFromServer.php");
                     HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
@@ -660,7 +660,7 @@ public class MainActivity extends AppCompatActivity
             String password=params[1];
             String response = null;
             try {
-                URL url = new URL("http://www.hbtifacemash.com/facemash/getPath.php");
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getPath.php");
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -692,7 +692,7 @@ public class MainActivity extends AppCompatActivity
         protected String doInBackground(String... params) {
             String response=null;
             try {
-                URL url = new URL("http://www.hbtifacemash.com/facemash/getNotification.php");
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getNotification.php");
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -753,7 +753,7 @@ public class MainActivity extends AppCompatActivity
             String response = null;
             //      String u="http://shareyourbook.netau.net/test/OgetStatus.php";
             try {
-                URL url = new URL("http://www.hbtifacemash.com/facemash/getImageStatus.php");
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getImageStatus.php");
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -813,7 +813,7 @@ public class MainActivity extends AppCompatActivity
             String response = null;
             //      String u="http://shareyourbook.netau.net/test/OgetStatus.php";
             try {
-                URL url = new URL("http://www.hbtifacemash.com/facemash/getImageStatus.php");
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getImageStatus.php");
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -871,7 +871,7 @@ public class MainActivity extends AppCompatActivity
             String response = null;
             //      String u="http://shareyourbook.netau.net/test/OgetStatus.php";
             try {
-                URL url = new URL("http://www.hbtifacemash.com/facemash/getScore.php");
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getScore.php");
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);

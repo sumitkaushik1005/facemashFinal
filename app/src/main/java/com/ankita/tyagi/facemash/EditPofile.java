@@ -98,7 +98,7 @@ public class    EditPofile extends Activity {
             protected String doInBackground(String... strings) {
                 String password = strings[0];
                 String SrNo = strings[1];
-                String url = "http://www.hbtifacemash.com/facemash/changePass.php";
+                String url = "http://103.235.104.96/~hbtiface/facemash/changePass.php";
                 String response = null;
                 try {
                     URL add = new URL(url);
@@ -153,7 +153,7 @@ public class    EditPofile extends Activity {
             protected String doInBackground(String... strings) {
                 String oldPassword = strings[0];
                 String SrNo = strings[1];
-                String url = "http://www.hbtifacemash.com/facemash/checkOldPass.php";
+                String url = "http://103.235.104.96/~hbtiface/facemash/checkOldPass.php";
                 String response = null;
                 try {
                     URL add = new URL(url);

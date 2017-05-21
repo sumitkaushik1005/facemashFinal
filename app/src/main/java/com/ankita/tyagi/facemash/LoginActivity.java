@@ -270,8 +270,9 @@ public class LoginActivity extends Activity {
             String sr = srno.replace("/", "");
             String password = params[1];
           //  String url = "http://103.235.104.80/~hbtilibrary/facemash/hbtiFaceMashLogin.php";
-            String url="http://www.hbtifacemash.com/facemash/hbtiFaceMashLogin.php";
+           // String url="http://103.235.104.96/~hbtiface/facemash/hbtiFaceMashLogin.php";
           //  String url="http://shareyourbook.netau.net/test/OhbtiFaceMashLogin.php";
+            String url="http://103.235.104.96/~hbtiface/facemash/hbtiFaceMashLogin.php";
             boolean b = isConnectedToServer();
             if (b) {
                 try {

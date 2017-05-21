@@ -165,7 +165,7 @@ public class Registration extends AppCompatActivity {
             String srno = strings[0];
             String username = strings[1];
             String response = "";
-            String url = "http://www.hbtifacemash.com/facemash/user_verification.php";
+            String url = "http://103.235.104.96/~hbtiface/facemash/user_verification.php";
             try {
                 URL add = new URL(url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) add.openConnection();
@@ -220,7 +220,7 @@ public class Registration extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             publishProgress("s");
-            String url = "http://www.hbtifacemash.com/facemash/facemashRegistration.php";
+            String url = "http://103.235.104.96/~hbtiface/facemash/facemashRegistration.php";
             String username = params[0];
           //  String srno = params[1];
            // String sr = srno.replace("/", "");
@@ -317,7 +317,7 @@ public class Registration extends AppCompatActivity {
                 String password=strings[2];
                 String sr = srno.replace("/", "");
                 String response = "";
-                String url = "http://www.hbtifacemash.com/facemash/uploadId.php";
+                String url = "http://103.235.104.96/~hbtiface/facemash/uploadId.php";
                 try {
                     URL add = new URL(url);
                     HttpURLConnection httpURLConnection = (HttpURLConnection) add.openConnection();

@@ -126,7 +126,7 @@ Bitmap cropped;
             //String name = strings[3];
             //String url="http://192.168.43.89/phpmyadmin/upload2.php";
             //String url="http://192.168.43.89/phpmyadmin/DemoImageUpload.php";
-            String url = "http://www.hbtifacemash.com/facemash/uploadToServer2.php";
+        String url = "http://103.235.104.96/~hbtiface/facemash/uploadToServer2.php";
             try {
                 URL add = new URL(url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) add.openConnection();
