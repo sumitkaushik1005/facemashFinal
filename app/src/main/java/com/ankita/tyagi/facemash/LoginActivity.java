@@ -106,6 +106,9 @@ public class LoginActivity extends Activity {
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.sign_in_button);
+<<<<<<< HEAD
+
+=======
     /*    mEmailSignInButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -131,6 +134,7 @@ public class LoginActivity extends Activity {
                 return true;
             }
         });*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,12 +142,18 @@ public class LoginActivity extends Activity {
 
             }
         });
+<<<<<<< HEAD
+=======
         // Button register = (Button) findViewById(R.id.register_button);
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         TextView register = (TextView) findViewById(R.id.register_button);
         register.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
+=======
                 // Intent i = new Intent("android.intent.action.REGISTRATION");
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
                 Intent i = new Intent(LoginActivity.this, Registration.class);
                 startActivity(i);
             }
@@ -151,8 +161,11 @@ public class LoginActivity extends Activity {
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+<<<<<<< HEAD
+=======
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
     }
@@ -269,9 +282,12 @@ public class LoginActivity extends Activity {
             String srno = params[0];
             String sr = srno.replace("/", "");
             String password = params[1];
+<<<<<<< HEAD
+=======
           //  String url = "http://103.235.104.80/~hbtilibrary/facemash/hbtiFaceMashLogin.php";
            // String url="http://103.235.104.96/~hbtiface/facemash/hbtiFaceMashLogin.php";
           //  String url="http://shareyourbook.netau.net/test/OhbtiFaceMashLogin.php";
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
             String url="http://103.235.104.96/~hbtiface/facemash/hbtiFaceMashLogin.php";
             boolean b = isConnectedToServer();
             if (b) {

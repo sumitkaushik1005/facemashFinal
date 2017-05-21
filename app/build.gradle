@@ -2,7 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
+<<<<<<< HEAD
+    buildToolsVersion '24.0.1'
+=======
     buildToolsVersion '23.0.3'
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
 
     defaultConfig {
         applicationId "com.sumit.kaushik.HBTIFacemash"

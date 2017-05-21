@@ -49,9 +49,13 @@ import java.net.URLEncoder;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+<<<<<<< HEAD
+    public static String srno;
+=======
     private static final int SELECT_FILE = 1;
     public static String srno;
     public static int counter=0;
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
     public static String name;
     public static String gender;
     public String status;
@@ -61,10 +65,13 @@ public class MainActivity extends AppCompatActivity
     private int PICK_IMAGE_REQUEST = 1;
     private int cameraData = 0;
     public static Bundle b;
+<<<<<<< HEAD
+=======
     String image_url;
    // private AdView adView;
     String path;
     String password;
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
     String result;
     NotificationCompat.Builder mBuilder=new NotificationCompat.Builder(this);
     SwipeRefreshLayout swipeRefreshLayout;
@@ -75,9 +82,13 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toast.makeText(MainActivity.this,"Swipe right for more options.",Toast.LENGTH_LONG).show();
+<<<<<<< HEAD
+
+=======
       //  adView=(AdView)findViewById(R.id.adView);
        // AdRequest adRequest=new AdRequest.Builder().build();
         //adView.loadAd(adRequest);
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         t1 = (TextView) findViewById(R.id.main_name);
         t2=(TextView)findViewById(R.id.year);
         t3=(TextView)findViewById(R.id.branch);
@@ -93,6 +104,11 @@ public class MainActivity extends AppCompatActivity
        String ar[] = name.split(",");
         name = ar[0];
         gender=ar[1];
+<<<<<<< HEAD
+        t1.setText("Hello,Welcome " + name);
+
+        new GetSrno().execute(name,gender);
+=======
        /* srno = ar[2];
         String score=ar[6];
         String year=ar[3];
@@ -171,6 +187,7 @@ public class MainActivity extends AppCompatActivity
         imageLoader.get(image_url,ImageLoader.getImageListener(img,R.drawable.spinner,R.drawable.malen));
         else
             imageLoader.get(image_url,ImageLoader.getImageListener(img,R.drawable.spinner,R.drawable.femalen));*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        setSupportActionBar(toolbar);
 
@@ -182,6 +199,9 @@ public class MainActivity extends AppCompatActivity
                 i.putExtra("info", srno);
                 startActivity(i);
 
+<<<<<<< HEAD
+
+=======
             /*    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
              /*   Intent i = new Intent("android.intent.action.Game");
@@ -223,6 +243,7 @@ public class MainActivity extends AppCompatActivity
 
                 }
                 */
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
             }
         });
 
@@ -234,6 +255,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+<<<<<<< HEAD
+       swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.refresh);
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+=======
         //Bitmap icon=BitmapFactory.decodeResource(MainActivity.this.getResources(),R.drawable.logo);
        // mBuilder.setLargeIcon(icon);
         //mBuilder.setSmallIcon(R.drawable.logo);
@@ -243,6 +270,7 @@ public class MainActivity extends AppCompatActivity
                 @Override
                 public void onRefresh() {
                     //new GetScore().execute(srno,gender);
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
                     new GetImage().execute(srno,gender);
                     swipeRefreshLayout.setRefreshing(false);
                 }
@@ -259,6 +287,8 @@ public class MainActivity extends AppCompatActivity
 
 
 
+<<<<<<< HEAD
+=======
         class GetStatus extends AsyncTask<String, String, String> {
     ProgressDialog progressDialog;
             @Override
@@ -334,6 +364,7 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
 
 
       private   class GetImage extends AsyncTask<String, String, Bitmap> {
@@ -402,6 +433,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+<<<<<<< HEAD
+=======
             // Handle the camera action
          /*   boolean b=isConnectedToServer();
             if(b)
@@ -411,6 +444,7 @@ public class MainActivity extends AppCompatActivity
           /*    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             intent.setType("image/*");
             startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -425,6 +459,9 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             } else
                 Toast.makeText(MainActivity.this,"Intenet interruption",Toast.LENGTH_LONG).show();
+<<<<<<< HEAD
+        } else if (id == R.id.nav_take_pic) {
+=======
         } /*else if (id == R.id.nav_share) {
             boolean b=isConnectedToServer();
             if(b) {
@@ -446,6 +483,7 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(MainActivity.this,"Intenet interruption",Toast.LENGTH_LONG).show();
         }  */else if (id == R.id.nav_take_pic) {
           //  new GetImageStatus1().execute(srno);
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
             Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             i.putExtra(MediaStore.EXTRA_OUTPUT,true);
             startActivityForResult(i, cameraData);
@@ -531,6 +569,13 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+<<<<<<< HEAD
+
+
+
+    public String getStringImage(Bitmap bitmap) {
+
+=======
        /* public class MyRequestHandler extends AsyncTask<String, String, String> {
                 ProgressDialog progressDialog;
             @Override
@@ -615,6 +660,7 @@ public class MainActivity extends AppCompatActivity
         Matrix matrix=new Matrix();
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap resizedBitmap=Bitmap.createBitmap(bitmap,0,0,width,height,matrix,true);*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         //resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         bitmap.compress(Bitmap.CompressFormat.JPEG, 30, baos);
@@ -652,6 +698,10 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+<<<<<<< HEAD
+
+   private class GetSrno extends AsyncTask<String,String,String> {
+=======
     private class GetPath extends AsyncTask<String,String,String>{
         @Override
         protected String doInBackground(String... params) {
@@ -857,6 +907,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
     private class GetSrno extends AsyncTask<String,String,String> {
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         ProgressDialog progressDialog;
         @Override
         protected void onPreExecute() {
@@ -903,8 +954,11 @@ public class MainActivity extends AppCompatActivity
             progressDialog.dismiss();
             srno=s;
             new GetImage().execute(srno,gender);
+<<<<<<< HEAD
+=======
             //     t4.setText(s);
 
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         }
     }
 }

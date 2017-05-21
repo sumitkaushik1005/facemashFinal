@@ -152,6 +152,8 @@ public class Registration extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
+=======
     public class BackgroundActivity1 extends AsyncTask<String, String, String> {
         ProgressDialog progressDialog;
         @Override
@@ -208,6 +210,7 @@ public class Registration extends AppCompatActivity {
 
         }
     }
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
 
     public class BackgroundActivity extends AsyncTask<String, String, String> {
         ProgressDialog progressDialog;
@@ -265,6 +268,9 @@ public class Registration extends AppCompatActivity {
             if (result.equals("user has been registered")) {
                 Toast.makeText(getBaseContext(), "Sorry!! You Have Created The Account", Toast.LENGTH_SHORT).show();
             } else if (result.equals("data inserted")) {
+<<<<<<< HEAD
+
+=======
                /* AlertDialog.Builder builder = new AlertDialog.Builder(Registration.this);
                 builder.setMessage("Help us to verify you easily by uploading your RC or ID. ").setPositiveButton("Upload RC/Id", new DialogInterface.OnClickListener() {
                     @Override
@@ -282,6 +288,7 @@ public class Registration extends AppCompatActivity {
                     }
                 });
                 builder.show();*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
                 Toast.makeText(getBaseContext(), "Registration Successful!! You can log In now.", Toast.LENGTH_LONG).show();
                 Intent start = new Intent(Registration.this, LoginActivity.class);
                 startActivity(start);

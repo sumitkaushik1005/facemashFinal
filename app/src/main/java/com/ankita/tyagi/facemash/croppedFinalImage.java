@@ -42,6 +42,9 @@ Bitmap cropped;
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
+
+=======
                /* AlertDialog.Builder builder = new AlertDialog.Builder(croppedFinalImage.this);
                 builder.setMessage("You won't be able change or upload any image afterward for a session.Are you sure? ")
                         .setPositiveButton("YES", new DialogInterface.OnClickListener() {
@@ -75,6 +78,7 @@ Bitmap cropped;
                 builder.show();
 
 */
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
                 String StringBmp=getStringBitmap(cropped);
                 MyRequestHandler myRequestHandler=new MyRequestHandler();
                 myRequestHandler.execute(StringBmp);
@@ -93,10 +97,14 @@ Bitmap cropped;
         });
 
       iv= (ImageView) findViewById(R.id.finalCropped);
+<<<<<<< HEAD
+
+=======
         /*Intent intent=getIntent();
         byte[] bytes = intent.getByteArrayExtra("cropped");
          cropped = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         iv.setImageBitmap(cropped);*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         try{
             InputStream inputStream=openFileInput("CroppedImage.txt");
             if(inputStream!=null){
@@ -121,11 +129,15 @@ Bitmap cropped;
         protected String doInBackground(String... strings) {
             String response = "";
             String UploadImage = strings[0];
+<<<<<<< HEAD
+
+=======
             // String sno = strings[1];
             //String gender = strings[2];
             //String name = strings[3];
             //String url="http://192.168.43.89/phpmyadmin/upload2.php";
             //String url="http://192.168.43.89/phpmyadmin/DemoImageUpload.php";
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         String url = "http://103.235.104.96/~hbtiface/facemash/uploadToServer2.php";
             try {
                 URL add = new URL(url);
