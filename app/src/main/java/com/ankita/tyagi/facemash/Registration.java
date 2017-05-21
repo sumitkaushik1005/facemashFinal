@@ -152,6 +152,65 @@ public class Registration extends AppCompatActivity {
 
     }
 
+<<<<<<< HEAD
+=======
+    public class BackgroundActivity1 extends AsyncTask<String, String, String> {
+        ProgressDialog progressDialog;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog=ProgressDialog.show(Registration.this,"Verification...","Please Wait...",true,true);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String srno = strings[0];
+            String username = strings[1];
+            String response = "";
+            String url = "http://103.235.104.96/~hbtiface/facemash/user_verification.php";
+            try {
+                URL add = new URL(url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) add.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String data = URLEncoder.encode("srno", "UTF-8") + "=" + URLEncoder.encode(srno, "UTF-8") + "&" +
+                        URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(username, "UTF-8");
+                bufferedWriter.write(data);
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    response += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return response;
+        }
+
+        public void onPostExecute(String result) {
+            progressDialog.dismiss();
+            if (result.equals("Valid")) {
+                Toast.makeText(getBaseContext(), "Valid", Toast.LENGTH_SHORT);
+                // new BackgroundActivity().execute(username, srno, password, gender);
+
+            } else {
+                Toast.makeText(getBaseContext(), "Your Name And S.R.No Doesn't Match", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
 
     public class BackgroundActivity extends AsyncTask<String, String, String> {
         ProgressDialog progressDialog;
@@ -209,7 +268,27 @@ public class Registration extends AppCompatActivity {
             if (result.equals("user has been registered")) {
                 Toast.makeText(getBaseContext(), "Sorry!! You Have Created The Account", Toast.LENGTH_SHORT).show();
             } else if (result.equals("data inserted")) {
+<<<<<<< HEAD
 
+=======
+               /* AlertDialog.Builder builder = new AlertDialog.Builder(Registration.this);
+                builder.setMessage("Help us to verify you easily by uploading your RC or ID. ").setPositiveButton("Upload RC/Id", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startActivityForResult(intent, cameraData);
+                      }
+                }).setNegativeButton("No Thanks", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getBaseContext(), "You can log In now.Please give us some time to verify You..", Toast.LENGTH_LONG).show();
+                        Intent start = new Intent(Registration.this, LoginActivity.class);
+                        startActivity(start);
+                        finish();
+
+                    }
+                });
+                builder.show();*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
                 Toast.makeText(getBaseContext(), "Registration Successful!! You can log In now.", Toast.LENGTH_LONG).show();
                 Intent start = new Intent(Registration.this, LoginActivity.class);
                 startActivity(start);

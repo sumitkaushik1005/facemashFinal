@@ -49,7 +49,13 @@ import java.net.URLEncoder;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+<<<<<<< HEAD
     public static String srno;
+=======
+    private static final int SELECT_FILE = 1;
+    public static String srno;
+    public static int counter=0;
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
     public static String name;
     public static String gender;
     public String status;
@@ -59,6 +65,13 @@ public class MainActivity extends AppCompatActivity
     private int PICK_IMAGE_REQUEST = 1;
     private int cameraData = 0;
     public static Bundle b;
+<<<<<<< HEAD
+=======
+    String image_url;
+   // private AdView adView;
+    String path;
+    String password;
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
     String result;
     NotificationCompat.Builder mBuilder=new NotificationCompat.Builder(this);
     SwipeRefreshLayout swipeRefreshLayout;
@@ -69,7 +82,13 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toast.makeText(MainActivity.this,"Swipe right for more options.",Toast.LENGTH_LONG).show();
+<<<<<<< HEAD
 
+=======
+      //  adView=(AdView)findViewById(R.id.adView);
+       // AdRequest adRequest=new AdRequest.Builder().build();
+        //adView.loadAd(adRequest);
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         t1 = (TextView) findViewById(R.id.main_name);
         t2=(TextView)findViewById(R.id.year);
         t3=(TextView)findViewById(R.id.branch);
@@ -85,9 +104,90 @@ public class MainActivity extends AppCompatActivity
        String ar[] = name.split(",");
         name = ar[0];
         gender=ar[1];
+<<<<<<< HEAD
         t1.setText("Hello,Welcome " + name);
 
         new GetSrno().execute(name,gender);
+=======
+       /* srno = ar[2];
+        String score=ar[6];
+        String year=ar[3];
+        String branch=ar[4];
+        password=ar[5];*/
+        t1.setText("Hello,Welcome " + name);
+       // t2.setText("Year "+year);
+       // t3.setText("Branch " + branch);
+        /*if(score!=null){
+            t4.setText("Score :"+score);
+        }
+        else
+        {
+            t4.setText("Score : 0");
+        }*/
+        //Toast.makeText(getBaseContext(),gender,Toast.LENGTH_SHORT).show();
+
+        new GetSrno().execute(name,gender);
+     //getImage();
+      //  new GetImage().execute(srno[counter],gender);
+       // counter=counter%5;
+    /*  if(gender.equals("MALE")) {
+            image_url = "http://103.235.104.80/~hbtilibrary/facemash/maleUploads/" + srno.replace("/", "") + ".jpg";
+        }else
+        {
+            image_url="http://103.235.104.80/~hbtilibrary/facemash/femaleUploads/" + srno.replace("/", "") + ".jpg";
+        }
+
+        ImageLoaderConfiguration configuration=new ImageLoaderConfiguration.Builder(MainActivity.this).build();
+        ImageLoader.getInstance().init(configuration);
+         imageLoader=ImageLoader.getInstance();
+        //imageLoader.displayImage(image_url,img);
+
+        imageLoader.displayImage(image_url, img,options, new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+           imageLoader.displayImage(image_url,img);
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        }, new ImageLoadingProgressListener(){
+            @Override
+            public void onProgressUpdate(String imageUri, View view, int current, int total) {
+
+            }
+        });*/
+
+      /*/////  try {
+            path=new GetPath().execute(srno,password).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        ImageLoader imageLoader=AppController.getInstance().getImageLoader();
+        if(gender.equals("MALE")) {
+            image_url = "http://103.235.104.96/~hbtiface/facemash/" + path;
+        }else
+        {
+            image_url="http://103.235.104.96/~hbtiface/facemash/" +path;
+        }
+        if(gender.equals("MALE"))
+        imageLoader.get(image_url,ImageLoader.getImageListener(img,R.drawable.spinner,R.drawable.malen));
+        else
+            imageLoader.get(image_url,ImageLoader.getImageListener(img,R.drawable.spinner,R.drawable.femalen));*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        setSupportActionBar(toolbar);
 
@@ -99,7 +199,51 @@ public class MainActivity extends AppCompatActivity
                 i.putExtra("info", srno);
                 startActivity(i);
 
+<<<<<<< HEAD
 
+=======
+            /*    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+             /*   Intent i = new Intent("android.intent.action.Game");
+                i.putExtra("srno",srno+","+name);
+                startActivity(i);*/
+                //String s = getStatus(srno);
+              /*  boolean b=isConnectedToServer();
+                if(b) {
+                    new GetStatus().execute(srno);
+                }
+                else
+                {
+                        Toast.makeText(MainActivity.this,"Interent Interruption...",Toast.LENGTH_SHORT).show();
+                }
+             /*   String temp[] = result.split(",");
+                //gender = temp[1];
+                status = temp[0];
+                if (status.equals("1")) {
+                    Intent i = new Intent(MainActivity.this, Gender.class);
+                    i.putExtra("info", name + "," + srno);
+                    startActivity(i);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage("Your account hasn't been verified yet.\n Help us to verify you by uploading RC/ID").setPositiveButton("Upload RC/Id", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            startActivityForResult(intent, 5);
+
+
+                        }
+                    }).setNegativeButton("Yes,I have.", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this,"Please give us some more time...",Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    builder.show();
+
+                }
+                */
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
             }
         });
 
@@ -111,10 +255,22 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+<<<<<<< HEAD
        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.refresh);
             swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                 @Override
                 public void onRefresh() {
+=======
+        //Bitmap icon=BitmapFactory.decodeResource(MainActivity.this.getResources(),R.drawable.logo);
+       // mBuilder.setLargeIcon(icon);
+        //mBuilder.setSmallIcon(R.drawable.logo);
+        //mBuilder.setContentTitle("HbtuFacemash");
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.refresh);
+            swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                @Override
+                public void onRefresh() {
+                    //new GetScore().execute(srno,gender);
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
                     new GetImage().execute(srno,gender);
                     swipeRefreshLayout.setRefreshing(false);
                 }
@@ -131,6 +287,84 @@ public class MainActivity extends AppCompatActivity
 
 
 
+<<<<<<< HEAD
+=======
+        class GetStatus extends AsyncTask<String, String, String> {
+    ProgressDialog progressDialog;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressDialog=ProgressDialog.show(MainActivity.this,"Please Wait..","",true,true);
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+                String srno = params[0];
+                String sr = srno.replace("/", "");
+                String response = null;
+          //      String u="http://shareyourbook.netau.net/test/OgetStatus.php";
+                try {
+                    URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getStatus.php");
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String data = URLEncoder.encode("srno", "UTF-8") + "=" + URLEncoder.encode(sr, "UTF-8");
+                    bufferedWriter.write(data);
+                    bufferedWriter.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+                  response=bufferedReader.readLine();
+
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return response;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                progressDialog.dismiss();
+                new GetNotification().execute();
+                result=s;
+                String temp[] = result.split(",");
+                //gender = temp[1];
+                status = temp[0];
+                if (status.equals("1")) {
+                    Intent i = new Intent(MainActivity.this, Gender.class);
+                    i.putExtra("info", name + "," + srno);
+                    startActivity(i);
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage("Your account hasn't been verified yet.\n Help us to verify you by uploading RC/ID").setPositiveButton("Upload RC/Id", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent intent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            startActivityForResult(intent, 5);
+
+
+                        }
+                    }).setNegativeButton("Yes,I have.", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this,"Please give us some more time...",Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    builder.show();
+
+                }
+
+            }
+        }
+
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
 
 
       private   class GetImage extends AsyncTask<String, String, Bitmap> {
@@ -199,6 +433,18 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+<<<<<<< HEAD
+=======
+            // Handle the camera action
+         /*   boolean b=isConnectedToServer();
+            if(b)
+            new GetImageStatus().execute(srno);
+            else
+            Toast.makeText(MainActivity.this,"Intenet interruption",Toast.LENGTH_LONG).show();
+          /*    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/*");
+            startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
             Intent intent = new Intent();
             intent.setType("image/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -213,7 +459,31 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             } else
                 Toast.makeText(MainActivity.this,"Intenet interruption",Toast.LENGTH_LONG).show();
+<<<<<<< HEAD
         } else if (id == R.id.nav_take_pic) {
+=======
+        } /*else if (id == R.id.nav_share) {
+            boolean b=isConnectedToServer();
+            if(b) {
+                String lnk = "https://play.google.com/store/apps/details?id=com.sumit.kaushik.HBTIFacemash";
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT,"Hey Check this new app..."+lnk);
+                try {
+                    startActivity(Intent.createChooser(share, "Send link..."));
+
+                    Toast.makeText(MainActivity.this, "Forwarding Link...", Toast.LENGTH_SHORT).show();
+                } catch (ActivityNotFoundException e) {
+                    //Toast.makeText(MainActivity.this, "THERE IS NO EMAIL CLIENT INSTALLED", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(null, "THERE IS NO EMAIL CLIENT INSTALLED", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            }
+            else
+                Toast.makeText(MainActivity.this,"Intenet interruption",Toast.LENGTH_LONG).show();
+        }  */else if (id == R.id.nav_take_pic) {
+          //  new GetImageStatus1().execute(srno);
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
             Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             i.putExtra(MediaStore.EXTRA_OUTPUT,true);
             startActivityForResult(i, cameraData);
@@ -299,11 +569,98 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+<<<<<<< HEAD
 
 
 
     public String getStringImage(Bitmap bitmap) {
 
+=======
+       /* public class MyRequestHandler extends AsyncTask<String, String, String> {
+                ProgressDialog progressDialog;
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressDialog=ProgressDialog.show(MainActivity.this,"Uploading...","Please Wait...",true,true);
+            }
+
+            @Override
+            protected String doInBackground(String... strings) {
+                String response = "";
+                String UploadImage = strings[0];
+               // String sno = strings[1];
+                //String gender = strings[2];
+                //String name = strings[3];
+                //String url="http://192.168.43.89/phpmyadmin/upload2.php";
+                //String url="http://192.168.43.89/phpmyadmin/DemoImageUpload.php";
+                String url = "http://103.235.104.80/~hbtilibrary/facemash/uploadToServer2.php";
+                try {
+                    URL add = new URL(url);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) add.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String data = URLEncoder.encode("uploadImage", "UTF-8") + "=" + URLEncoder.encode(UploadImage, "UTF-8")
+                            + "&" + URLEncoder.encode("srno", "UTF-8") + "=" + URLEncoder.encode(srno, "UTF-8")
+                            + "&" + URLEncoder.encode("gender", "UTF-8") + "=" + URLEncoder.encode(gender, "UTF-8")
+                            + "&" + URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");
+                    bufferedWriter.write(data);
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+
+                    String line = "";
+                    while ((line = bufferedReader.readLine()) != null) {
+                        response += line;
+                    }
+
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return response;
+                } catch (java.lang.OutOfMemoryError outOfMemoryError) {
+                    Toast.makeText(getBaseContext(), "Please try againg after some time", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                progressDialog.dismiss();
+            }
+        }*/
+       // MyRequestHandler myRequestHandler = new MyRequestHandler();
+
+     //  Bitmap resize = resizeBitmap(bitmap);
+
+        //String StringBmp = getStringImage(bitmap);
+       // String sr = srno.replace("/", "");
+       // myRequestHandler.execute(StringBmp, sr, gender, name);
+
+
+
+
+
+
+    public String getStringImage(Bitmap bitmap) {
+     /*  int width= bitmap.getWidth();
+        int height=bitmap.getHeight();
+        int newWidth=200;
+        int newHeight=200;
+        float scaleWidth=((float)newWidth)/width;
+        float scaleHeight=((float)newHeight)/height;
+        Matrix matrix=new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        Bitmap resizedBitmap=Bitmap.createBitmap(bitmap,0,0,width,height,matrix,true);*/
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         //resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         bitmap.compress(Bitmap.CompressFormat.JPEG, 30, baos);
@@ -341,8 +698,216 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+<<<<<<< HEAD
 
    private class GetSrno extends AsyncTask<String,String,String> {
+=======
+    private class GetPath extends AsyncTask<String,String,String>{
+        @Override
+        protected String doInBackground(String... params) {
+            String srno = params[0];
+            String sr = srno.replace("/", "");
+            String password=params[1];
+            String response = null;
+            try {
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getPath.php");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String data = URLEncoder.encode("srno", "UTF-8") + "=" + URLEncoder.encode(sr, "UTF-8")
+                        + "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+                bufferedWriter.write(data);
+                bufferedWriter.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+                response=bufferedReader.readLine();
+
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return response;
+
+        }
+    }
+
+    private class GetNotification extends AsyncTask<String,String,String > {
+        @Override
+        protected String doInBackground(String... params) {
+            String response=null;
+            try {
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getNotification.php");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+                response=bufferedReader.readLine();
+
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+          /*  Intent result=new Intent(MainActivity.this,LoginActivity.class);
+            TaskStackBuilder stackBuilder=TaskStackBuilder.create(MainActivity.this);
+            stackBuilder.addParentStack(MainActivity.class);
+            stackBuilder.addNextIntent(result);
+            PendingIntent resultPendingIntent=stackBuilder.getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+            mBuilder.setContentIntent(resultPendingIntent);
+            mBuilder.setContentText(s);
+            NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.notify(0,mBuilder.build());*/
+            String temp[]=s.split(",");
+            Intent intent=new Intent(MainActivity.this, LoginActivity.class);
+            PendingIntent pendingIntent=PendingIntent.getActivity(MainActivity.this,0,intent,PendingIntent.FLAG_CANCEL_CURRENT);
+            Bitmap icon=BitmapFactory.decodeResource(MainActivity.this.getResources(),R.drawable.logo);
+            Notification notification=mBuilder.setSmallIcon(R.drawable.logo).setLargeIcon(icon).setAutoCancel(true).setStyle(new NotificationCompat.BigTextStyle().bigText(temp[1])).setContentIntent(pendingIntent)
+                    .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                    .setContentText(temp[1]).setContentTitle("HbtuFacemash").build();
+            NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                if(temp[0].equals("1"))
+            notificationManager.notify(0,notification);
+
+
+        }
+    }
+
+    private class GetImageStatus extends AsyncTask<String,String,String>{
+        ProgressDialog progressDialog;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog=ProgressDialog.show(MainActivity.this,"Please Wait...","",true,true);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String srno = params[0];
+            String sr = srno.replace("/", "");
+            String response = null;
+            //      String u="http://shareyourbook.netau.net/test/OgetStatus.php";
+            try {
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getImageStatus.php");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String data = URLEncoder.encode("srno", "UTF-8") + "=" + URLEncoder.encode(sr, "UTF-8");
+                bufferedWriter.write(data);
+                bufferedWriter.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+                response=bufferedReader.readLine();
+
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return response;
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            progressDialog.dismiss();
+            if(s!=null){
+                if(s.equals("0"))
+                {
+                    Intent intent = new Intent();
+                    intent.setType("image/*");
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+
+                }
+                else{
+    Toast.makeText(MainActivity.this,"Image can't be updated until the session ends. ",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+    private class GetImageStatus1 extends AsyncTask<String,String,String> {
+        ProgressDialog progressDialog;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog=ProgressDialog.show(MainActivity.this,"Please Wait...","",true,true);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            String srno = params[0];
+            String sr = srno.replace("/", "");
+            String response = null;
+            //      String u="http://shareyourbook.netau.net/test/OgetStatus.php";
+            try {
+                URL url = new URL("http://103.235.104.96/~hbtiface/facemash/getImageStatus.php");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String data = URLEncoder.encode("srno", "UTF-8") + "=" + URLEncoder.encode(sr, "UTF-8");
+                bufferedWriter.write(data);
+                bufferedWriter.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+                response=bufferedReader.readLine();
+
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return response;
+
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            progressDialog.dismiss();
+            if(s!=null){
+                if(s.equals("0"))
+                {
+                    Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    i.putExtra(MediaStore.EXTRA_OUTPUT,true);
+                    startActivityForResult(i, cameraData);
+
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"Image can't be uploaded until the session ends. ",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+    private class GetSrno extends AsyncTask<String,String,String> {
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         ProgressDialog progressDialog;
         @Override
         protected void onPreExecute() {
@@ -389,6 +954,11 @@ public class MainActivity extends AppCompatActivity
             progressDialog.dismiss();
             srno=s;
             new GetImage().execute(srno,gender);
+<<<<<<< HEAD
+=======
+            //     t4.setText(s);
+
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
         }
     }
 }

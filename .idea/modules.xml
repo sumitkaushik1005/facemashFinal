@@ -3,7 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/facemashFinal-master.iml" filepath="$PROJECT_DIR$/facemashFinal-master.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/facemash-master.iml" filepath="$PROJECT_DIR$/facemash-master.iml" />
+>>>>>>> 16ea1f66d36bde9d77720845455306cc37b6012f
       <module fileurl="file://$PROJECT_DIR$/httpmime-4.1.1/httpmime-4.1.1.iml" filepath="$PROJECT_DIR$/httpmime-4.1.1/httpmime-4.1.1.iml" />
     </modules>
   </component>
